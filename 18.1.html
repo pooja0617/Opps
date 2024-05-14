@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee & Department Information</title>
+</head>
+
+<body>
+    <h1>Employee and Department Information</h1>
+    <div id="1employee-info"></div>
+
+    <script>
+        class Employee {
+            constructor(id, name, address, telephone, designation) {
+                this._id = id;
+                this._name = name;
+                this._address = address;
+                this._telephone = telephone;
+                this._designation = designation;
+            }
+
+            
+            get eid() {
+                return this._id;
+            }
+
+            get ename() {
+                return this._name;
+            }
+
+            get address() {
+                return this._address;
+            }
+
+            get telephone() {
+                return this._telephone;
+            }
+
+            get designation() {
+                return this._designation;
+            }
+
+            
+            set eid(newEid) {
+                this._id = newEid;
+            }
+
+            set ename(newEname) {
+                this._name = newEname;
+            }
+
+            set address(newAddress) {
+                this._address = newAddress;
+            }
+
+            set telephone(newTelephone) {
+                this._telephone = newTelephone;
+            }
+
+            set designation(newDesignation) {
+                this._designation = newDesignation;
+            }
+        }
+
+        class Department extends Employee {
+            constructor(id1, name, address, telephone, designation, did, dname, location, numOfStaff) {
+                super(id1, name, address, telephone, designation);
+                this._id1 = id1;
+                this._name = name;
+                this._location = location;
+                this._numOfStaff = numOfStaff;
+            }
+
+            // __________Getter methods specific to Department__________ //
+            get did() {
+                return this._id1;
+            }
+
+            get dname() {
+                return this._name;
+            }
+
+            get location() {
+                return this._location;
+            }
+
+            get numOfStaff() {
+                return this._numOfStaff;
+            }
+
+            // __________Setter methods specific to Department__________ //
+            // set did(newDid) {
+            //     this._did = newDid;
+            // }
+
+            // set dname(newDname) {
+            //     this._dname = newDname;
+            // }
+
+            // set location(newLocation) {
+            //     this._location = newLocation;
+            // }
+
+            // set numOfStaff(newNumOfStaff) {
+            //     this._numOfStaff = newNumOfStaff;
+            // }
+        }
+
+        // __________Creating objects__________ //
+        let employee1 = new Department(1, "Pooja Pradhan", "123 ST", "123-456-7890", "Manager", 101, "HR", "USA", 50);
+        let employee2 = new Department(2, "Roshni Prajapati", "123 ST", "123-456-7890", "Assistant Manager", 102, "Finance", "USA", 10);
+
+        // __________Displaying results__________ //
+        function displayEmployeeInfo(employee) {
+            let infoDiv = document.getElementById("1employee-info");
+            infoDiv.innerHTML += `
+                <div>
+                    <h2>Employee Information</h2>
+                    <p>ID: ${employee.eid}</p>
+                    <p>Name: ${employee.ename}</p>
+                    <p>Address: ${employee.address}</p>
+                    <p>Telephone: ${employee.telephone}</p>
+                    <p>Designation: ${employee.designation}</p>
+                    <p>Department ID: ${employee.did}</p>
+                    <p>Department Name: ${employee.dname}</p>
+                    <p>Location: ${employee.location}</p>
+                    <p>Number of Staff: ${employee.numOfStaff}</p>
+                </div>
+            `;
+        }
+
+        displayEmployeeInfo(employee1);
+        displayEmployeeInfo(employee2);
+    </script>
+</body>
+
+</html>
